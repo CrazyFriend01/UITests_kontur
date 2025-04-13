@@ -21,10 +21,10 @@ public class Tests
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
 
-        Login("belentsov02@mail.ru", "Okno32768327680!");
+        Login("Почта", "Пароль");
     }
 
-        [TearDown]
+    [TearDown]
     public void Teardown() 
     {
     driver.Quit();
@@ -43,16 +43,16 @@ public class Tests
 
     private void OpenProfileMenu()
     {
-            var profileMenu = driver.FindElement(By.CssSelector("[data-tid='ProfileMenu']"));
-            profileMenu.Click();
-            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='PopupContentInner']")));
+        var profileMenu = driver.FindElement(By.CssSelector("[data-tid='ProfileMenu']"));
+        profileMenu.Click();
+        wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("[data-tid='PopupContentInner']")));
     }
 
      private void OpenSettings()
     {
-            OpenProfileMenu();
-            var settings = driver.FindElement(By.CssSelector("[data-tid='Settings']"));
-            settings.Click();
+        OpenProfileMenu();
+        var settings = driver.FindElement(By.CssSelector("[data-tid='Settings']"));
+        settings.Click();
     }
 
     [Test]
